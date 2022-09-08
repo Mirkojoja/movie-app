@@ -25,7 +25,9 @@
         <div class="m-2 px-6 py-2">
             <h1 class="tracking-widest uppercase mb-4 font-bold">Registration</h1>
             <button
-                class="rounded-md border py-1 px-4 hover:bg-zinc-200 hover:text-zinc-800 font-bold">Sign Up
+                class="rounded-md border py-1 px-4 hover:bg-zinc-200 hover:text-zinc-800 font-bold"><router-link to="/sign-up">
+                    Sign Up
+                </router-link>
                 </button>
                 <button
                 class="rounded-md border py-1 px-4 hover:bg-zinc-200 hover:text-zinc-800 font-bold ml-4">Login
