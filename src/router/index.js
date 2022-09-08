@@ -3,6 +3,7 @@ import HomeView from '../views/HomeView.vue'
 import SignUp from "../components/SignUp.vue"
 import Login from "../components/Login.vue"
 import Forgot from "../components/Forgot.vue"
+import MovieDetials from "../components/MovieDetials.vue"
 
 const routes = [
   {
@@ -32,6 +33,11 @@ const routes = [
     path: '/forgot',
     name: 'Forgot',
     component: Forgot
+  },
+    {
+    path: '/moviedetials/:id',
+    name: 'Moviedetials',
+    component: MovieDetials
   },
 ]
 
