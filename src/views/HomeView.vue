@@ -1,10 +1,12 @@
 <template>
-  <div class="text-center w-full h-full pl-64">
+  <div class=" w-full h-full pl-64">
 
     <!-- top img -->
 
-        <img class="w-full h-64" src="https://images.unsplash.com/photo-1612036782180-6f0b6cd846fe?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" alt="">
+  <img class="w-full h-[70vh]" src="https://images.unsplash.com/photo-1612036782180-6f0b6cd846fe?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" alt="">
 
+
+      
           <div class="flex-1 overflow-auto ..."></div>
           <div class="flex justify-center m-4">
 
@@ -26,8 +28,8 @@
     </button>
 </form>
     </div>
-  <h3 class="">Welcome to Movies tv</h3>
-       <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic optio autem repellendus excepturi, iure impedit corporis expedita iste, deleniti est aliquam! Omnis laudantium tenetur voluptatem cum libero vero rerum voluptas.</p>
+  <h3 class="text-center">Welcome to Movies tv</h3>
+       <p class="text-center justify-content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic optio autem repellendus excepturi, iure impedit corporis expedita iste, deleniti est aliquam! Omnis laudantium tenetur voluptatem cum libero vero rerum voluptas.</p>
 
  <Movies />
   
