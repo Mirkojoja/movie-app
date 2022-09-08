@@ -2,8 +2,8 @@
   <div class="">
     <h1>Movies list aa </h1>
 
- <ul>
-  <li v-for="movie in movies" :key="movie.id">
+ <ul v-for="movie in movies" :key="movie.id">
+  <li  class="border p-4 bg-zinc-500">
     {{ movie.title}} <br />
     {{ movie.release_date}}
   </li>
