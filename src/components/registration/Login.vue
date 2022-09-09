@@ -9,7 +9,7 @@
                 <label class="text-start font-bolder ml-3" for="password">Password:</label>
                 <input v-model="password" class="border rounded-xl p-3 m-1 focus:bg-black bg-gray-700" type="password"
                     placeholder="Enter Password" />
-                <button v-on:click="signUp"
+                <button v-on:click="login()"
                     class="bg-blue-600 hover:bg-blue-900 border rounded-xl border-black p-3 mt-3 cursor-pointer ">Login
                 </button>
                 <router-link to="/forgot"><p class="text-end mr-2 font-extralight mt-1 hover:text-red-700">Forgot password</p></router-link>
@@ -24,7 +24,25 @@
 </template>
 
 <script>
+import axios from 'axios';
+
 export default {
-    name: 'Login'
+    name: 'Login',
+    data() {
+        return{
+            email:'',
+            password:'',
+        }
+    },
+    methods: {
+        async login(){
+            let response = await axios.get(`http://localhost:3000/users?email=${this.email}&password=${this.password}`)
+            if(response.status == 200 && response.data.length > 0) {
+                localStorage.setItem('user-info', JSON.stringify(response.data[0]))
+                this.$router.push({ name: 'Sidebar' && 'home'})
+            }
+            console.log(response);
+        }
+    }
 }
 </script>

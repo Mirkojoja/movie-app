@@ -27,7 +27,31 @@
 </template>
 
 <script>
+import axios from 'axios';
+
 export default {
-    name: 'SignUp'
+    name: 'SignUp',
+    data() {
+        return{
+            name:'',
+            email:'',
+            password:''
+        }
+    },
+    methods:{
+        async signUp() {
+            let response = await axios.post('http://localhost:3000/users', {
+                name: this.name,
+                email: this.email,
+                password: this.password
+            });
+
+            if(response.status==201) {
+                localStorage.setItem('user-info', JSON.stringify(response.data))
+                this.$router.push({ name: 'Sidebar' && 'home'})
+            }
+            console.log("clicked", response);
+        }
+    }
 }
 </script>
