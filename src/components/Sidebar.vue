@@ -26,7 +26,7 @@
         </div>
         <div class="h-px w-full bg-white mt-14"> </div>
 
-        <div v-if="!isAuthenticated" class="m-2 px-6 py-4">
+        <div class="m-2 px-6 py-4">
             <h1 class="tracking-widest uppercase mb-4 font-bold text-white">Registration <font-awesome-icon icon="fa-solid fa-user" /></h1> 
             <router-link to="/sign-up">
             <button
@@ -40,11 +40,7 @@
                 </button>
             </router-link>
         </div>
-        <div v-else class="px-6 py-4">
-            <h1 class="tracking-widest uppercase mb-4 font-bold text-white">Registration <font-awesome-icon icon="fa-solid fa-user" /></h1> 
-            <button v-on:click="logout()" class="rounded-md border py-1 px-4 hover:bg-zinc-200 hover:text-zinc-800 font-bold">Logout
-            </button>
-        </div>
+        
         <div class="h-px w-full bg-white my-4"> </div>
 
         <div class="flex gap-4 text-2xl justify-center">
@@ -57,6 +53,7 @@
 </template>
 
 <script>
+
 
 export default {
     name: 'Sidebar'
