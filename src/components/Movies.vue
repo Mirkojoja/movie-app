@@ -11,15 +11,9 @@
 
  <!-- https://images.unsplash.com/photo-1612036782180-6f0b6cd846fe?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80 -->
 
- <div class="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-4 m-4 gap-8">
-  <Movie />
-  <Movie />
-   <Movie />
-   <Movie />
-   <Movie />
-    <Movie />
-     <Movie />
-      <Movie />
+ <div class=" grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-4 m-4 gap-8">
+  <Movie  v-for="movie in movies" :key="movie.id" :movie="movie"/>
+
  </div>
   </div>
 </template>

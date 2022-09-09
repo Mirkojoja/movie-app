@@ -1,11 +1,12 @@
 <template>
   <div class="border rounded bg-midnight ">
   <router-link to="/moviedetials/1">
-    <img class="hover:opacity-75 transition easy-in-out duration-150" src="https://images.unsplash.com/photo-1612036782180-6f0b6cd846fe?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80 " alt="">
-    <h3 class="font-bold pl-2 my-2 text-zinc-400 text-2xl">Name Movie</h3>
-    <div class="my-2 pl-2">
-      <span> Release year | </span><br />
-      <span> Type</span>
+    <img class="hover:opacity-75 transition easy-in-out duration-150" :src="posterPath" alt="">
+    <h3 class="font-bold pl-2 my-2 text-zinc-400 text-2xl">{{ movie.title }}</h3>
+    <div class="my-2 pl-2 flex flex-col">
+      <span class="font-bold "> Release year | <span class="text-zinc-300 ml-2">{{ movie.release_date }}</span> </span>
+      <span class="font-bold "> Language | <span class="text-zinc-300 ml-2">{{ movie.original_language }}</span></span>
+      <span class="font-bold ">  <font-awesome-icon icon="fa-solid fa-star" class="text-yellow-600" /> <span class="text-zinc-300 ml-2">{{ movie.vote_average }}</span></span>
      
     </div>
   </router-link>
@@ -15,6 +16,17 @@
 <script>
 export default {
     name: 'Movie',
+    props: {
+      movie: {
+        required: true,
+      }
+    },
+    computed: {
+        posterPath(){
+          return "https://image.tmdb.org/t/p/w1280" + this.movie.poster_path
+
+        }
+    }
 }
 </script>
 
