@@ -3,7 +3,8 @@ import HomeView from '../views/HomeView.vue'
 import SignUp from "../components/registration/SignUp.vue"
 import Login from "../components/registration/Login.vue"
 import Forgot from "../components/registration/Forgot.vue"
-import MovieDetials from "../components/MovieDetials.vue"
+import MovieDetials from "../components/pages/MovieDetials.vue"
+import TrendMovies from "../components/movies/TrendMovies.vue"
 import Sidebar from "../components/Sidebar.vue"
 import Welcome from "../views/Welcome.vue"
 import YourList from "../views/YourList.vue"
@@ -41,6 +42,11 @@ const routes = [
     path: '/moviedetials/:id',
     name: 'Moviedetials',
     component: MovieDetials
+  },
+  {
+    path: '/toprated',
+    name: 'TopRated',
+    component: TrendMovies
   },
   {
     path: '/sidebar',

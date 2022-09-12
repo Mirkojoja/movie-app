@@ -10,6 +10,8 @@
                 to="/your-list"><font-awesome-icon class="mr-4" icon="fa-solid fa-list-ol" />Your List</router-link>
             <router-link class="text-white uppercase font-bold rounded m-2 px-6 py-2 flex  hover:bg-zinc-600 items-center"
                 to="/about"><font-awesome-icon class="mr-4" icon="fa-solid fa-address-card" /> About us</router-link>
+                  <router-link class="text-white uppercase font-bold rounded m-2 px-6 py-2 flex  hover:bg-zinc-600 items-center"
+                to="/toprated"><font-awesome-icon icon="fa-solid fa-star" class="text-yellow-600 mr-4"/> Top Rated</router-link>
         </div>
 
         <div class="h-px w-full bg-white "> </div>

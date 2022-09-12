@@ -1,9 +1,9 @@
 <template>
-  <div class="">
-    <h1 class="mt-5 text-yellow-500 uppercase text-xlg font-bold m-6">Popular movies</h1>
- <div class=" grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-4 m-4 gap-8">
+  <div class=" w-full h-full pl-64">
+    <h1 class="mt-5 text-yellow-500 uppercase text-xlg font-bold m-6">Top Rated</h1>
+ <div class=" grid grid-cols-1 sm:grid-cols-2 md:grid-cols-6 lg:grid-cols-6 m-4 gap-2">
  
-    <div class="border rounded bg-midnight "  v-for="movie in movies" :key="movie.title">
+    <div class="border rounded bg-midnight "  v-for="movie in trendMovies" :key="movie.title">
   <router-link :to="`/moviedetials/${movie.id}`">
     <img class="hover:opacity-75 transition easy-in-out duration-150" :src=" 'https://image.tmdb.org/t/p/w1280' + movie.poster_path" alt="">
     <h3 class="font-bold pl-2 my-2 text-zinc-400 text-lg">{{ movie.title }}</h3>
@@ -24,20 +24,20 @@
 
 <script>
 import {mapState} from 'vuex'
-
-
 export default {
-
-name: 'Movies',
+name: 'TrenMovies',
 
 mounted() {
-  this.$store.dispatch('getMovies')
+     this.$store.dispatch('getTrendMovies')
+    
 },
 
 computed: {
   ...mapState([
-    'movies'
-  ])
+    'trendMovies'
+     
+  ]),
+
 }
 }
 </script>

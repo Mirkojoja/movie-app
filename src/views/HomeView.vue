@@ -31,58 +31,37 @@
           </div>
           <input type="text" id="voice-search"
             class="lg:w-96 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-            placeholder="Search Movies" required>
-          <button type="button" class="flex absolute inset-y-0 right-0 items-center pr-3">
-            <svg aria-hidden="true"
-              class="w-4 h-4 text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white"
-              fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-              <path fill-rule="evenodd"
-                d="M7 4a3 3 0 016 0v4a3 3 0 11-6 0V4zm4 10.93A7.001 7.001 0 0017 8a1 1 0 10-2 0A5 5 0 015 8a1 1 0 00-2 0 7.001 7.001 0 006 6.93V17H6a1 1 0 100 2h8a1 1 0 100-2h-3v-2.07z"
-                clip-rule="evenodd"></path>
-            </svg>
-          </button>
+            placeholder="Search Movies" required
+              @keyup.enter="submit"
+               v-model="query">
         </div>
-
       </form>
 
-      <!-- <button type="submit" class="inline-flex items-center py-2.5 px-3 ml-2 text-sm font-medium text-white bg-zinc-900 rounded-lg border border-zinc-300  hover:text-zinc-800 hover:bg-zinc-200 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-zinc-700 dark:hover:bg-zinc-300 dark:focus:ring-blue-800">
+      <button type="submit" class="inline-flex items-center py-2.5 px-3 ml-2 text-sm font-medium text-white bg-zinc-900 rounded-lg border border-zinc-300  hover:text-zinc-800 hover:bg-zinc-200 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-zinc-700 dark:hover:bg-zinc-300 dark:focus:ring-blue-800">
         <svg aria-hidden="true" class="mr-2 -ml-1 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>Search
-    </button> -->
+    </button>
 
-      <!-- search results -->
+      
 
-      <div class="absolute w-96 rounded  mt-12">
+      <div v-if="false" class="absolute w-96 rounded  mt-12">
         <ul class="mt-6">
-            <li class=" bg-zinc-800 p-3 flex tex-center border-b  ">
+            <li  class=" bg-zinc-800 p-3 flex tex-center border-b  ">
               
             <img class="h-36 " src="https://images.unsplash.com/photo-1534809027769-b00d750a6bac?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80" alt="">
              <div class="flex flex-col pt-4">
-              <span class="text-white font-bold font-lg  items-center pl-10">Dragon</span>
+              <span class="text-white font-bold font-lg  items-center pl-10">TItle</span>
               <span class="text-white font-bold font-lg  items-center pl-10">Genre</span>
               <span class="text-white font-bold font-lg  items-center pl-10">Relese date</span>
              </div>
             </li>
-            <li class=" bg-zinc-800 p-3 flex tex-center border-b  ">
-              
-              <img class="h-36 " src="https://images.unsplash.com/photo-1534809027769-b00d750a6bac?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80" alt="">
-               <div class="flex flex-col pt-4">
-                <span class="text-white font-bold font-lg  items-center pl-10">Dragon</span>
-                <span class="text-white font-bold font-lg  items-center pl-10">Genre</span>
-                <span class="text-white font-bold font-lg  items-center pl-10">Relese date</span>
-               </div>
-              </li>
-
         </ul>
     </div>
-
     </div>
-
-
     <p class="text-center justify-content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic optio autem
       repellendus excepturi, iure impedit corporis expedita iste, deleniti est aliquam! Omnis laudantium tenetur
       voluptatem cum libero vero rerum voluptas.</p>
 
-    <Movies />
+    <PopularMovies />
 
   </div>
 </template>
@@ -90,18 +69,21 @@
 <script>
 // @ is an alias to /src
 
-import Movies from "../components/Movies"
+import PopularMovies from "../components/movies/PopularMovies"
+
 
 export default {
   name: 'HomeView',
   components: {
-    Movies
+    PopularMovies
   },
-  data() {
+   data() {
     return {
-      name: ''
-    }
+     name: ''
+    };
   },
+  
+  
   mounted() {
     let user = localStorage.getItem("user-info");
     this.name = JSON.parse(user).name;

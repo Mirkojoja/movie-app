@@ -1,5 +1,6 @@
 <template>
-<div class="pl-96 pr-48">
+<div class="pl-96 pr-48 absolute ">
+
     <div class=" flex mx-auto mt-20">
     <img class="w-64 rounded-md " :src=" 'https://image.tmdb.org/t/p/w1280' + this.movie.poster_path" alt="">
 
