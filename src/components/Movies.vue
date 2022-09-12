@@ -1,63 +1,44 @@
 <template>
   <div class="">
     <h1 class="mt-5 text-yellow-500 uppercase text-xlg font-bold m-6">Popular movies</h1>
-
- <!-- <ul v-for="movie in movies" :key="movie.id">
-  <li  class="border p-4 bg-zinc-500">
-    {{ movie.title}} <br />
-    {{ movie.release_date}}
-  </li>
- </ul> -->
-
- <!-- https://images.unsplash.com/photo-1612036782180-6f0b6cd846fe?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80 -->
-
  <div class=" grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-4 m-4 gap-8">
-  <Movie  v-for="movie in movies" :key="movie.title" :movie="movie"/>
+ 
+    <div class="border rounded bg-midnight "  v-for="movie in movies" :key="movie.title">
+  <router-link :to="`/moviedetials/${movie.id}`">
+    <img class="hover:opacity-75 transition easy-in-out duration-150" :src=" 'https://image.tmdb.org/t/p/w1280' + movie.poster_path" alt="">
+    <h3 class="font-bold pl-2 my-2 text-zinc-400 text-lg">{{ movie.title }}</h3>
+    <div class="my-2 pl-2 flex flex-col">
+      <span class="font-bold text-sm "> Release year | <span class="text-zinc-300 ml-2">{{ movie.release_date }}</span> </span>
+      <span class="font-bold text-sm "> Language | <span class="text-zinc-300 ml-2">{{ movie.original_language }}</span></span>
+      <span class="font-bold text-sm">  <font-awesome-icon icon="fa-solid fa-star" class="text-yellow-600" /> <span class="text-zinc-300 ml-2">{{ movie.vote_average }}</span></span>
+       <span class="font-bold text-xs text-zinc-800 italic">Action</span>
+ 
+     
+    </div>
+  </router-link>
+  </div>
 
  </div>
   </div>
 </template>
 
 <script>
-import axios from 'axios'
-import Movie from '../components/Movie'
+import {mapState} from 'vuex'
+
 
 export default {
 
 name: 'Movies',
 
-components: {
-    Movie,
-},
-
-data() {
-  return {
-    movies: []
-  }
-},
-
 mounted() {
-  this.getMovies()
+  this.$store.dispatch('getMovies')
 },
 
-  methods: {
-    getMovies: function() {
-
-      axios.get(`https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=04c35731a5ee918f014970082a0088b1&page=1`)
-      .then((result)=>  {
-
-          result.data.results.forEach((item) => {
-
-            console.log(item)
-
-            this.movies.push(item)
-          })
-      })
-      .catch((error) => {
-        console.log(error)
-      })
-    }
-  }
+computed: {
+  ...mapState([
+    'movies'
+  ])
+}
 }
 </script>
 

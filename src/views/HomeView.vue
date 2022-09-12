@@ -1,5 +1,5 @@
 <template>
-  <div class=" w-full h-full pl-64 relative">
+  <div class=" w-full h-full pl-64 ">
 
     <!-- top img -->
 
