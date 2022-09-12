@@ -1,6 +1,7 @@
 <template>
-  <div class="about text-center w-full h-full  pl-64">
-    <h1>This is an about page</h1>
-    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Libero enim a minima officiis quia nihil beatae aliquid repudiandae ullam, dolore architecto natus cupiditate et vitae itaque ipsam voluptatibus corporis facere.</p>
-  </div>
+   <div class="w-full pl-64 h-screen">
+        <div class="bg-zinc-900 w-[600px] mx-auto border rounded-lg text-center mt-5 text-white opacity-95 px-4">
+        <h1 class="text-[2rem]">About Us</h1>
+      </div>
+    </div>
 </template>

@@ -51,7 +51,7 @@
 
       <!-- search results -->
 
-      <!-- <div class="absolute w-96 rounded  mt-12">
+      <div class="absolute w-96 rounded  mt-12">
         <ul class="mt-6">
             <li class=" bg-zinc-800 p-3 flex tex-center border-b  ">
               
@@ -73,7 +73,7 @@
               </li>
 
         </ul>
-    </div> -->
+    </div>
 
     </div>
 
@@ -105,9 +105,7 @@ export default {
   mounted() {
     let user = localStorage.getItem("user-info");
     this.name = JSON.parse(user).name;
-    if (!user) {
-      this.$router.push({ name: "Signup" });
-    }
+  
   },
   methods: {
     logout() {
