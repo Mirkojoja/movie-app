@@ -48,7 +48,7 @@ export default {
 
             if(response.status==201) {
                 localStorage.setItem('user-info', JSON.stringify(response.data))
-                this.$router.push({ name: 'Sidebar' && 'home'})
+                this.$router.push({ name:'HomeView'})
             }
             console.log("clicked", response);
         }

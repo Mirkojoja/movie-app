@@ -5,11 +5,13 @@ import Login from "../components/registration/Login.vue"
 import Forgot from "../components/registration/Forgot.vue"
 import MovieDetials from "../components/MovieDetials.vue"
 import Sidebar from "../components/Sidebar.vue"
+import Welcome from "../views/Welcome.vue"
+import YourList from "../views/YourList.vue"
 
 const routes = [
   {
-    path: '/',
-    name: 'home',
+    path: '/home',
+    name: 'HomeView',
     component: HomeView
   },
   {
@@ -44,6 +46,16 @@ const routes = [
     path: '/sidebar',
     name: 'Sidebar',
     component: Sidebar
+  },
+  {
+    path: '/',
+    name: 'Welcome',
+    component: Welcome
+  },
+  {
+    path: '/your-list',
+    name: 'YourList',
+    component: YourList
   },
 ]
 

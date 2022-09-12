@@ -35,11 +35,12 @@ export default {
         }
     },
     methods: {
+        
         async login(){
             let response = await axios.get(`http://localhost:3000/users?email=${this.email}&password=${this.password}`)
             if(response.status == 200 && response.data.length > 0) {
                 localStorage.setItem('user-info', JSON.stringify(response.data[0]))
-                this.$router.push({ name: 'Sidebar' && 'home'})
+                this.$router.push({ name:'HomeView'})
             }
             console.log(response);
         }
