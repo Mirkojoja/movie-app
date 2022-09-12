@@ -1,16 +1,16 @@
 <template>
 <div class="pl-96 pr-48">
     <div class=" flex mx-auto mt-20">
-    <img class="w-64 rounded-md " src="https://images.unsplash.com/photo-1534809027769-b00d750a6bac?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80" alt="">
+    <img class="w-64 rounded-md " :src=" 'https://image.tmdb.org/t/p/w1280' + this.movie.poster_path" alt="">
 
       <!-- description -->
 
         <div class="w-90 ml-36">
-            <h3 class="text-3xl uppercase text-white">Spiderman</h3>
+            <h3 class="text-3xl uppercase text-white">{{movie.title}}</h3>
         <div class="mt-10">
-          <span class="mt-10">Date realise:</span><br />
-            <span>Type:</span>
-            <p class="mt-5 text-white justify-content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore, quas alias debitis praesentium quidem molestiae ad repudiandae provident vitae aliquam saepe perferendis natus deleniti incidunt delectus commodi ipsam fugiat nostrum!</p>
+          <span class="mt-10">Date realise: </span><span class="text-white"> {{ this.movie.release_date}}</span><br />
+            <span> <font-awesome-icon icon="fa-solid fa-star" class="text-yellow-600" /> {{this.movie.vote_average * 10}} %</span>
+            <p class="mt-5 text-white justify-content">{{ this.movie.overview}}</p>
           
         </div>
             <!-- buttouns -->
@@ -32,12 +32,32 @@
 </template>
 
 <script>
+import axios from 'axios'
 export default {
 
-
-  mounted() {
-    console.log(this.$route.params.id);
+data() {
+  return {
+    movie: [],
   }
+},
+  mounted() {
+   this.getMovieDetial(this.$route.params.id)
+  },
+
+  methods: {
+        getMovieDetial(id) {
+      axios.get(`https://api.themoviedb.org/3/movie/${id}?api_key=a06cfa7f0853984e8a69e2db2fd1b8fd&language=en-US`)
+          .then(result =>  {
+
+              console.log(result.data);
+              this.movie = result.data;
+              })
+
+      .catch((error) => {
+            console.log(error)
+          })
+    }
+  },
 }
 </script>
 
