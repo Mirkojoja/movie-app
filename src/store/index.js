@@ -18,11 +18,7 @@ export default createStore({
 
     getTrendMovies: (state) => state.trendMovies,
 
-<<<<<<< HEAD
-    getMovieDetial: (state) => state.movieDetail,
-=======
     login: (state) => state.login,
->>>>>>> d4e8dad57bf4e5229696e2af26e125f1b3997330
   },
 
 
