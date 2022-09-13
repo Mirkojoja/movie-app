@@ -13,9 +13,15 @@
       "id": 2
     },
     {
+<<<<<<< HEAD
       "name": "Marko",
       "email": "marko@gmail.com",
       "password": "asdas",
+=======
+      "name": "mirko",
+      "email": "mirko@gmail.com",
+      "password": "1234",
+>>>>>>> d5631c9a5c295882abb26008d1526b074b95d230
       "id": 3
     }
   ]
