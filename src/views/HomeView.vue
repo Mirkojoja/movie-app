@@ -3,7 +3,7 @@
       <div v-if="!isLogged" class="w-full h-full pl-64">
           neki drugi ekran
       </div>
-      <div v-else class=" w-full h-full pl-64 ">
+      <div v-else class=" w-full h-full ">
     
     
         <!-- top img -->

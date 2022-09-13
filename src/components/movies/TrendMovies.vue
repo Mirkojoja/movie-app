@@ -1,5 +1,5 @@
 <template>
-  <div class=" w-full h-full pl-64">
+  <div class=" w-full h-full">
     <h1 class="mt-5 text-yellow-500 uppercase text-xlg font-bold m-6">Top Rated</h1>
  <div class=" grid grid-cols-1 sm:grid-cols-2 md:grid-cols-6 lg:grid-cols-6 m-4 gap-2">
  
