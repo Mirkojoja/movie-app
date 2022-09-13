@@ -1,6 +1,6 @@
 import { createStore } from 'vuex'
 import axios from 'axios'
-import { API_URL } from '@/config/env'
+// import { API_URL } from '@/config/env'
 
 export default createStore({
 
@@ -16,6 +16,8 @@ export default createStore({
     getPopularMovies: (state) => state.popularMovies,
 
     getTrendMovies: (state) => state.trendMovies,
+
+    getMovieDetial: (state) => state.movieDetail,
   },
 
 
@@ -26,13 +28,16 @@ export default createStore({
     SET_TREND_MOVIES(state, trendMovies) {
       state.trendMovies = trendMovies
     },
+    SET_DETIAL_MOVIES(state, movieDetail) {
+      state.movieDetail = movieDetail
+    },
  
   },
 
 
   actions: {
       getPopularMovies({commit}) {
-          axios.get(`${API_URL}/movie/popular`)
+          axios.get(`https://api.themoviedb.org/3/movie/popular?api_key=a06cfa7f0853984e8a69e2db2fd1b8fd&page=`)
           .then(result =>  {
               console.log(result.data)
         const movies = result.data.results.splice(0,12)
@@ -45,7 +50,7 @@ export default createStore({
       },
 
       getTrendMovies({commit}) {
-        axios.get(`${API_URL}/movie/top_rated`)
+        axios.get(`https://api.themoviedb.org/3/movie/top_rated?api_key=a06cfa7f0853984e8a69e2db2fd1b8fd&language=en-US&page=`)
         .then(result =>  {
           console.log(result.data)
           const movies = result.data.results.splice(0,12)
@@ -56,6 +61,20 @@ export default createStore({
           console.log(error)
         })
         },
+           getMovieDetial({commit}, id) {
+            console.log(id, 'store')
+            axios.get(`https://api.themoviedb.org/3/movie/${id}?api_key=a06cfa7f0853984e8a69e2db2fd1b8fd&language=en-US`)
+            .then(result =>  {
+          console.log(result.data)
+          const movies = result.data
+          commit('SET_DETIAL_MOVIES', movies)
+        })
+    
+        .catch((error) => {
+          console.log(error)
+        })
+        },
+    
   //       async getSearchResult({ commit }, query) {
   //         console.log(query);
   //         const response = await axios

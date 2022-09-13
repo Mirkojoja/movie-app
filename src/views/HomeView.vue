@@ -8,7 +8,7 @@
       alt="">
 
     <div class=" mt-2 text-white opacity-95 px-6 py-2 flex justify-between">
-      <h1 class="text-[1.2rem] font-bold">Hello {{name}}, welcome to MovieTV app</h1>
+      <h1 class="text-[1.2rem] font-bold">Hello {{name }}, welcome to MovieTV app</h1>
       <button v-on:click="logout()"
         class="rounded-md border py-1 px-4 hover:bg-zinc-200 hover:text-zinc-800 font-bold text-[1.2rem]">Logout</button>
 
@@ -32,8 +32,8 @@
           <input type="text" id="voice-search"
             class="lg:w-96 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
             placeholder="Search Movies" required
-              @keyup.enter="submit"
-               v-model="query">
+            
+               >
         </div>
       </form>
 
@@ -77,25 +77,21 @@ export default {
   components: {
     PopularMovies
   },
-   data() {
-    return {
-     name: ''
-    };
-  },
+ 
   
   
-  mounted() {
-    let user = localStorage.getItem("user-info");
-    this.name = JSON.parse(user).name;
+  // mounted() {
+  //   let user = localStorage.getItem("user-info");
+  //   this.name = JSON.parse(user).name;
   
-  },
-  methods: {
-    logout() {
-      localStorage.clear();
-      this.$router.push({ name: 'Welcome' })
+  // },
+  // methods: {
+  //   logout() {
+  //     localStorage.clear();
+  //     this.$router.push({ name: 'Welcome' })
 
-    }
-  }
+  //   }
+  // }
 
 }
 </script>
