@@ -5,6 +5,7 @@ import axios from 'axios'
 export default createStore({
 
   state: {
+    login: false,
     popularMovies: [],
     trendMovies: [],
     movieDetail: {},
@@ -17,7 +18,11 @@ export default createStore({
 
     getTrendMovies: (state) => state.trendMovies,
 
+<<<<<<< HEAD
     getMovieDetial: (state) => state.movieDetail,
+=======
+    login: (state) => state.login,
+>>>>>>> d4e8dad57bf4e5229696e2af26e125f1b3997330
   },
 
 
@@ -31,6 +36,9 @@ export default createStore({
     SET_DETIAL_MOVIES(state, movieDetail) {
       state.movieDetail = movieDetail
     },
+    SET_LOGIN(state, status) {
+      state.login = status;
+    }
  
   },
 

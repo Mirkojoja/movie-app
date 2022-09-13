@@ -28,7 +28,7 @@ import {mapState} from 'vuex'
 
 export default {
 
-name: 'Movies',
+name: 'PopularMovies',
 
 mounted() {
      this.$store.dispatch('getPopularMovies')
