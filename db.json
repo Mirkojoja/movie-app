@@ -11,6 +11,12 @@
       "email": "marko@gmail.com",
       "password": "123",
       "id": 2
+    },
+    {
+      "name": "mirko",
+      "email": "mirko@gmail.com",
+      "password": "1234",
+      "id": 3
     }
   ]
 }
