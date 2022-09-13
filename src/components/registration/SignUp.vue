@@ -1,7 +1,12 @@
 <template>
-    <div class="text-center h-screen pl-64 bg-[url('https://images.unsplash.com/photo-1626814026160-2237a95fc5a0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80')] ">
+    <div class=" p-5 text-center h-screen bg-[url('https://images.unsplash.com/photo-1626814026160-2237a95fc5a0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80')] ">
+            
+        <form action="">
             <div
-                class="flex flex-col w-96 my-20 mx-auto text-center text-white border rounded-xl p-7 bg-black bg-opacity-70">
+                class="flex flex-col w-96 mx-auto text-center text-white border rounded-xl p-7 bg-black bg-opacity-70">
+                <!-- <div class="text-red-500 mb-2 " v-if="errors.length">
+                <p class="p-1" v-for="error in errors" v-bind:key="error">{{ error }}</p>
+                </div> -->
                 <h1 class="font-bold text-3xl text-center mb-5">Sign Up</h1>
                 <label class="text-start font-bolder ml-3" for="name">Name:</label>
                 <input v-model="name" class="border rounded-xl p-3 m-1 focus:bg-black bg-gray-700" type="text"
@@ -12,7 +17,7 @@
                 <label class="text-start font-bolder ml-3" for="password">Password:</label>
                 <input v-model="password" class="border rounded-xl p-3 m-1 focus:bg-black bg-gray-700" type="password"
                     placeholder="Enter Password" />
-                <button v-on:click="signUp"
+                <button v-on:click="signUp()"
                     class="bg-blue-600 hover:bg-blue-900 border rounded-xl border-black p-3 mt-3 cursor-pointer ">Sign
                     Up</button>
                 <div class="mt-5">
@@ -22,6 +27,7 @@
                     </p>
                 </div>
             </div>
+        </form>
         </div>
 
 </template>
@@ -33,6 +39,7 @@ export default {
     name: 'SignUp',
     data() {
         return{
+            errors: [],
             name:'',
             email:'',
             password:''
@@ -43,15 +50,16 @@ export default {
             let response = await axios.post('http://localhost:3000/users', {
                 name: this.name,
                 email: this.email,
-                password: this.password
+                password: this.password,
             });
 
             if(response.status==201) {
                 localStorage.setItem('user-info', JSON.stringify(response.data))
-                this.$router.push({ name:'HomeView'})
+                this.$router.push({ name:'HomeView'});
+                this.$store.commit('SET_LOGIN', true);
             }
-            console.log("clicked", response);
+      
         }
-    }
+}
 }
 </script>

@@ -1,7 +1,7 @@
 <template>
       <div class="flex">
           <Sidebar />
-          <div class="overflow-auto w-full layout_width">
+          <div class="overflow-auto layout_width">
             <router-view />
           </div>
       </div>

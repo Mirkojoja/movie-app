@@ -1,7 +1,7 @@
 <template>
     <div class="sidebar text-white w-64 bg-zinc-900 min-h-screen z-100">
         <div class="mt-8 text-start">
-           <router-link to="/"> <span class="h-10 p-8 text-white text-3xl font-bold">MoviesTV</span></router-link>
+            <span class="h-10 p-8 text-white text-3xl font-bold">MoviesTV</span>
         </div>
         <div class="my-7">
             <router-link class="text-white uppercase font-bold rounded m-2 px-6 py-2 flex hover:bg-zinc-600 items-center"
