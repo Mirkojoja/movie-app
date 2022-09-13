@@ -5,6 +5,7 @@ import { API_URL } from '@/config/env'
 export default createStore({
 
   state: {
+    login: false,
     popularMovies: [],
     trendMovies: [],
     movieDetail: {},
@@ -16,6 +17,8 @@ export default createStore({
     getPopularMovies: (state) => state.popularMovies,
 
     getTrendMovies: (state) => state.trendMovies,
+
+    login: (state) => state.login,
   },
 
 
@@ -26,6 +29,9 @@ export default createStore({
     SET_TREND_MOVIES(state, trendMovies) {
       state.trendMovies = trendMovies
     },
+    SET_LOGIN(state, status) {
+      state.login = status;
+    }
  
   },
 
