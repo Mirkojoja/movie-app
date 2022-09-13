@@ -14,18 +14,7 @@
                 to="/toprated"><font-awesome-icon icon="fa-solid fa-star" class="text-yellow-600 mr-4"/> Top Rated</router-link>
         </div>
 
-        <div class="h-px w-full bg-white "> </div>
-
-        <div class="m-2 px-6 h-32">
-            <h1 class="tracking-widest uppercase font-bold my-4">Lists</h1>
-            <div class="flex items-center justify-end">
-                <input class="border rounded w-full relative py-1 px-2 text-black" type="text" name="create" placeholder="Create list">
-                <button
-                    class="rounded border-none py-1 px-2 text-red-500   hover:text-black font-bold  absolute">
-                    <font-awesome-icon icon="fa-solid fa-plus" /></button>
-            </div>
-            <p class="mt-2 text-red-500 cursor-pointer">My Favorite List</p>
-        </div>
+        
         <div class="h-px w-full bg-white my-4"> </div>
 
         <div class="flex gap-4 text-2xl justify-center">
