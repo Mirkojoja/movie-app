@@ -8,8 +8,9 @@
         class="h-[200px] cover text-white px-6 py-2 bg-[url('https://images.unsplash.com/photo-1612036782180-6f0b6cd846fe?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80')]">
         <div class="flex felx-col justify-between opacity-95 mt-5">
           <h1 class="text-[1.2rem] font-bold text-zinc-900 bg-white py-2 px-4 border border-zinc-500 rounded-lg">Hello
-            {{name}},
-            welcome to Movies<span class="text-red-600 font-bold">TV</span></h1>
+            <span class="text-red-600">{{name}}</span> ,
+            welcome to Movies<span class="text-red-600 font-bold">TV</span>
+          </h1>
           <button v-on:click="logout()"
             class="text-[1.2rem] font-bold bg-zinc-900 py-2 px-4 border border-zinc-500 rounded-lg hover:bg-zinc-700 hover:text-white ">Logout</button>
         </div>
@@ -63,13 +64,8 @@
         </div>
       </div>
 
-      <div class="flex-1 overflow-auto ..."></div>
-      <div class="flex justify-center flex-wrap m-4">
+      <PopularMovies />
 
-
-        <PopularMovies />
-
-      </div>
     </div>
   </div>
 </template>
