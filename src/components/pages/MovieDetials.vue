@@ -1,16 +1,18 @@
 <template>
-<div class="m-10">
-       <!-- <img  :src="'https://image.tmdb.org/t/p/w1280' + getMovieDetial.backdrop_path + '?api_key=a06cfa7f0853984e8a69e2db2fd1b8fd'" alt="movie_image" class="hidden lg:block rounded absolute top-0 left-0 object-cover"> -->
-    <div class=" flex mx-auto mt-20">
+<div class="relative">
+  <div class="absolute ">
+    <img  :src="'https://image.tmdb.org/t/p/w1280' + getMovieDetial.backdrop_path + '?api_key=a06cfa7f0853984e8a69e2db2fd1b8fd'" alt="movie_image" class="hidden lg:block opacity-40 rounded top-0 left-0 object-cover">
+  </div>
+    <div class="layout_width flex mx-auto py-10 relative">
     <img class="rounded-md " :src=" 'https://image.tmdb.org/t/p/w300' + getMovieDetial.poster_path" alt="">
 
       <!-- description -->
-        <div class="w-96 ml-24">
+        <div class="ml-10 w-96">
             <h3 class="text-3xl uppercase text-white">{{getMovieDetial.title}}</h3>
         <div class="mt-10">
-          <span class="mt-10">Date realise: </span><span class="text-white"> {{ getMovieDetial.release_date}}</span><br />
-            <span> <font-awesome-icon icon="fa-solid fa-star" class="text-yellow-600" /> {{ getMovieDetial.vote_average * 10}} %</span>
-            <p class="mt-5 text-white justify-content">{{ getMovieDetial.overview }}</p>
+          <font-awesome-icon icon="fa-solid fa-calendar" class="text-lg" /> <span class="text-white ml-1 text-lg"> {{ getMovieDetial.release_date}}</span><br />
+          <font-awesome-icon icon="fa-solid fa-star" class="text-yellow-600 text-lg" /> <span class="text-lg font-bold">  {{ getMovieDetial.vote_average * 10}} %</span>
+            <p class="mt-5 text-white justify-content ">{{ getMovieDetial.overview }}</p>
           
         </div>
             <!-- buttouns -->
@@ -27,9 +29,8 @@
         </div>
         
   </div>
-  <div class="h-px w-full bg-white my-8"> </div>
 
-  <h2 class="text-xl font-bold">Cast</h2>
+  <h1 class="text-3xl font-bold mt-20 p-4">Cast</h1>
 
     <div class=" grid grid-cols-1 sm:grid-cols-2 md:grid-cols-6 lg:grid-cols-6 m-4 gap-2">
         <div  v-for="cast in getCast" :key="cast.id">

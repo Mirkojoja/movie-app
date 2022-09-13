@@ -3,7 +3,7 @@
     <div class="bg-zinc-900 w-[800px] mx-auto border rounded-lg text-center text-white opacity-95 p-4">
         <h1 class="text-[3rem]">Welcome to <span class="font-bold">Movies</span><span class="font-bold text-red-600">TV</span></h1>
         <div class="m-2 px-6 py-4">
-            <h1 class="tracking-widest text-xl mb-4 font-bold text-white"> Please SingUp to view content</h1> 
+            <h1 class="text-xl mb-4 font-bold text-white"> Please SingUp to view content</h1> 
             <router-link to="/sign-up">
             <button
                 class="text-[1.2rem] font-bold bg-zinc-900 py-2 px-4 border border-zinc-500 rounded-lg hover:bg-zinc-700 hover:text-white ">
