@@ -1,12 +1,11 @@
 <template>
-<div class="pl-96 pr-48 absolute ">
-
+<div class="m-10">
+       <!-- <img  :src="'https://image.tmdb.org/t/p/w1280' + getMovieDetial.backdrop_path + '?api_key=a06cfa7f0853984e8a69e2db2fd1b8fd'" alt="movie_image" class="hidden lg:block rounded absolute top-0 left-0 object-cover"> -->
     <div class=" flex mx-auto mt-20">
-    <!-- <img class="w-64 rounded-md " :src=" 'https://image.tmdb.org/t/p/w1280' + getMovieDetial.poster_path" alt=""> -->
+    <img class="rounded-md " :src=" 'https://image.tmdb.org/t/p/w300' + getMovieDetial.poster_path" alt="">
 
       <!-- description -->
-
-        <div class="w-90 ml-36">
+        <div class="w-96 ml-24">
             <h3 class="text-3xl uppercase text-white">{{getMovieDetial.title}}</h3>
         <div class="mt-10">
           <span class="mt-10">Date realise: </span><span class="text-white"> {{ getMovieDetial.release_date}}</span><br />
@@ -29,6 +28,18 @@
         
   </div>
   <div class="h-px w-full bg-white my-8"> </div>
+
+  <h2 class="text-xl font-bold">Cast</h2>
+
+    <div class=" grid grid-cols-1 sm:grid-cols-2 md:grid-cols-6 lg:grid-cols-6 m-4 gap-2">
+        <div  v-for="cast in getCast" :key="cast.id">
+            <img   :src=" 'https://image.tmdb.org/t/p/w154' + cast.profile_path" class="rounded mt-2 max-w-full transform group-hover:scale-150 transition duration-700">
+          <div class="mt-2 text-tiny transform group-hover:translate-x-48 transition duration-500">
+            <p class="text-zinc-300 italic "> {{cast.name}}</p>
+          </div>
+        </div>
+      </div>
+  
 </div>
 </template>
 
@@ -41,36 +52,14 @@ export default {
 
   created() {
       this.$store.dispatch("getMovieDetial", this.$route.params.id)
+      this.$store.dispatch("getCast", this.$route.params.id)
   },
   computed: {
     ...mapGetters({
-      getMovieDetial: 'getMovieDetial'
+      getMovieDetial: 'getMovieDetial',
+      getCast: 'getCast'
     })
   }
-
-// data() {
-//   return {
-//     movie: [],
-//   }
-// },
-  // mounted() {
-  //  this.getMovieDetial(this.$route.params.id)
-  // },
-
-  // methods: {
-  //       getMovieDetial(id) {
-  //     axios.get(`https://api.themoviedb.org/3/movie/${id}?api_key=a06cfa7f0853984e8a69e2db2fd1b8fd&language=en-US`)
-  //         .then(result =>  {
-
-  //             console.log(result.data);
-  //             this.movie = result.data;
-  //             })
-
-  //     .catch((error) => {
-  //           console.log(error)
-  //         })
-  //   }
-  // },
 }
 </script>
 

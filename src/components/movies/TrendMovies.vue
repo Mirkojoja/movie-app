@@ -13,7 +13,6 @@
       <span class="font-bold text-sm">  <font-awesome-icon icon="fa-solid fa-star" class="text-yellow-600" /> <span class="text-zinc-300 ml-2">{{ movie.vote_average }}</span></span>
        <span class="font-bold text-xs text-zinc-800 italic">Action</span>
  
-     
     </div>
   </router-link>
   </div>
