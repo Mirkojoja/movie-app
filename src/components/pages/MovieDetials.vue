@@ -2,16 +2,16 @@
 <div class="pl-96 pr-48 absolute ">
 
     <div class=" flex mx-auto mt-20">
-    <img class="w-64 rounded-md " :src=" 'https://image.tmdb.org/t/p/w1280' + this.movie.poster_path" alt="">
+    <!-- <img class="w-64 rounded-md " :src=" 'https://image.tmdb.org/t/p/w1280' + getMovieDetial.poster_path" alt=""> -->
 
       <!-- description -->
 
         <div class="w-90 ml-36">
-            <h3 class="text-3xl uppercase text-white">{{movie.title}}</h3>
+            <h3 class="text-3xl uppercase text-white">{{getMovieDetial.title}}</h3>
         <div class="mt-10">
-          <span class="mt-10">Date realise: </span><span class="text-white"> {{ this.movie.release_date}}</span><br />
-            <span> <font-awesome-icon icon="fa-solid fa-star" class="text-yellow-600" /> {{this.movie.vote_average * 10}} %</span>
-            <p class="mt-5 text-white justify-content">{{ this.movie.overview}}</p>
+          <span class="mt-10">Date realise: </span><span class="text-white"> {{ getMovieDetial.release_date}}</span><br />
+            <span> <font-awesome-icon icon="fa-solid fa-star" class="text-yellow-600" /> {{ getMovieDetial.vote_average * 10}} %</span>
+            <p class="mt-5 text-white justify-content">{{ getMovieDetial.overview }}</p>
           
         </div>
             <!-- buttouns -->
@@ -33,32 +33,44 @@
 </template>
 
 <script>
-import axios from 'axios'
+// import axios from 'axios'
+
+import {mapGetters} from "vuex"
 export default {
+  name: 'MovieDetial',
 
-data() {
-  return {
-    movie: [],
+  created() {
+      this.$store.dispatch("getMovieDetial", this.$route.params.id)
+  },
+  computed: {
+    ...mapGetters({
+      getMovieDetial: 'getMovieDetial'
+    })
   }
-},
-  mounted() {
-   this.getMovieDetial(this.$route.params.id)
-  },
 
-  methods: {
-        getMovieDetial(id) {
-      axios.get(`https://api.themoviedb.org/3/movie/${id}?api_key=a06cfa7f0853984e8a69e2db2fd1b8fd&language=en-US`)
-          .then(result =>  {
+// data() {
+//   return {
+//     movie: [],
+//   }
+// },
+  // mounted() {
+  //  this.getMovieDetial(this.$route.params.id)
+  // },
 
-              console.log(result.data);
-              this.movie = result.data;
-              })
+  // methods: {
+  //       getMovieDetial(id) {
+  //     axios.get(`https://api.themoviedb.org/3/movie/${id}?api_key=a06cfa7f0853984e8a69e2db2fd1b8fd&language=en-US`)
+  //         .then(result =>  {
 
-      .catch((error) => {
-            console.log(error)
-          })
-    }
-  },
+  //             console.log(result.data);
+  //             this.movie = result.data;
+  //             })
+
+  //     .catch((error) => {
+  //           console.log(error)
+  //         })
+  //   }
+  // },
 }
 </script>
 
