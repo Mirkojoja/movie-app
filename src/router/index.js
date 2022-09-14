@@ -8,6 +8,7 @@ import TrendMovies from "../components/movies/TrendMovies.vue"
 import Sidebar from "../components/Sidebar.vue"
 import Welcome from "../views/Welcome.vue"
 import YourList from "../views/YourList.vue"
+import UpcomingMovies from "../views/UpcomingMovies.vue"
 
 const routes = [
   {
@@ -47,6 +48,11 @@ const routes = [
     path: '/toprated',
     name: 'TopRated',
     component: TrendMovies
+  },
+  {
+    path: '/upcomingmovies',
+    name: 'UpcomingMovies',
+    component: UpcomingMovies
   },
   {
     path: '/sidebar',

@@ -11,7 +11,7 @@ export default createStore({
     movieDetail: {},
     cast: {},
     searchResults: [],
-    movies: [],
+    upcomingMovies: [],
     movie: null,
     favourite: [],
   },
@@ -28,7 +28,7 @@ export default createStore({
 
     getSearchResults: (state) => state.searchResults,
 
-  
+    getUpcomingMovies: (state) => state.upcomingMovies,
 
     login: (state) => state.login,
     
@@ -57,6 +57,9 @@ export default createStore({
         movie,
         quantity,
       })
+    },
+    SET_UPCOMING_MOVIES(state, upcomingMovies) {
+      state.upcomingMovies = upcomingMovies
     },
     SET_LOGIN(state, status) {
       state.login = status;
@@ -109,6 +112,17 @@ export default createStore({
         .then(result => {
           commit('SET_CAST', result.data.cast.splice(0, 6))
         })
+        .catch((error) => {
+          console.log(error)
+        })
+    },
+      getUpcomingMovies({ commit }) {
+        axios.get(`https://api.themoviedb.org/3/movie/upcoming?api_key=a06cfa7f0853984e8a69e2db2fd1b8fd&language=en-US&page=`)
+        .then(result => {
+        
+          commit('SET_UPCOMING_MOVIES',  result.data.results.splice(0, 12))
+        })
+
         .catch((error) => {
           console.log(error)
         })
