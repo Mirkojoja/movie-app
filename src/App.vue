@@ -33,6 +33,6 @@ html {
   @apply bg-zinc-600;
 }
 .layout_width {
-  width: calc(100% - 256px);
+  width: 100%;
 }
 </style>

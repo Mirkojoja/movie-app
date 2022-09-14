@@ -137,6 +137,24 @@
       "email": "danilo@gmail.com",
       "password": "dasda",
       "id": 23
+    },
+    {
+      "email": "slobodan@mail.com",
+      "password": "fadfa",
+      "name": "Sloba",
+      "id": 24
+    },
+    {
+      "email": "da",
+      "password": "dasd",
+      "name": "dasd",
+      "id": 25
+    },
+    {
+      "name": "Marko",
+      "email": "marko@gmail.com",
+      "password": "addfasd",
+      "id": 26
     }
   ]
 }

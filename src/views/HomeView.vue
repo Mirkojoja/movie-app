@@ -5,19 +5,19 @@
     </div>
     <div v-else>
       <div
-        class="flex flex-col justify-evenly items-center h-[200px] cover text-white px-6 py-2 bg-[url('https://images.unsplash.com/photo-1612036782180-6f0b6cd846fe?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80')]">
-        <div class="flex felx-col opacity-95 mt-5">
-          <h1 class="text-[1.2rem] font-bold text-white bg-zinc-900 py-2 px-4 border border-zinc-500 rounded">Hello
+        class="flex flex-col justify-evenly items-center md:h-[200px] cover text-white md:px-6 md:py-2 bg-[url('https://images.unsplash.com/photo-1612036782180-6f0b6cd846fe?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80')]">
+        <div class="md:flex felx-col opacity-95 mt-5">
+          <h1 class="md:text-[1.2rem] font-bold text-white bg-zinc-900 py-2 px-4 border  border-zinc-500 rounded">Hello
             <span class="text-red-600">{{name}}</span> ,
             welcome to Movies<span class="text-red-600 font-bold">TV</span>
           </h1>
           <button v-on:click="logout()"
-            class="text-[1.2rem] font-bold bg-zinc-900 py-2 px-4 border border-zinc-500 rounded hover:bg-zinc-700 hover:text-white ml-3 ">Logout</button>
+            class="md:text-[1.2rem] font-bold bg-zinc-900 py-2 px-4 border border-zinc-500 rounded hover:bg-zinc-700 hover:text-white mt-2 md:mt-0 md:ml-3 ">Logout</button>
         </div>
 
 
         <!-- Search bar -->
-        <div class="flex mt-14 items-center">
+        <div class="flex my-5 md:mt-14 items-center">
           <div class="relative text-black">
             <div class="flex absolute inset-y-0 items-center pl-3 pointer-events-none">
               <svg aria-hidden="true" class="w-5 h-5 text-gray-500 dark:text-gray-400" fill="currentColor"
@@ -28,7 +28,7 @@
               </svg>
             </div>
             <input type="text" id="voice-search"
-              class="sm:w-[500px] lg:w-[550px] pl-10 p-2.5 text-[1.1rem]  bg-white py-2 px-4 border border-zinc-500 rounded"
+              class=" w-[350px] lg:w-[550px] pl-10 p-2.5 md:text-[1.1rem]  bg-white py-2 px-4 border border-zinc-500 rounded"
               placeholder="Search Movies" required @keyup.enter="submit" v-model="query">
           </div>
           <div>

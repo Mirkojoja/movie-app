@@ -1,8 +1,8 @@
 <template>
     <div
-        class="lg:flex items-center justify-center p-5 text-center h-screen bg-[url('https://images.unsplash.com/photo-1626814026160-2237a95fc5a0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80')]">
+        class="lg:flex items-center justify-center p-5 text-center h-screen bg-[url('https://images.unsplash.com/photo-1626814026160-2237a95fc5a0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80')] absolute md:relative">
         <form @submit.prevent="login">
-            <div class="flex flex-col w-96 mx-auto  text-center text-white border rounded-xl p-7 bg-black bg-opacity-70">
+            <div class="flex flex-col w-[22rem] md:w-96 mx-auto  text-center text-white border rounded-xl p-7 bg-black bg-opacity-70">
                 <h1 class="font-bold text-3xl text-center mb-5">Login</h1>
                 <label class="text-start font-bolder ml-3" for="email">Email:</label>
                 <input v-model="email" class="border rounded-xl p-3 m-1 focus:bg-black bg-gray-700" type="email"
