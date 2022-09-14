@@ -9,7 +9,11 @@ export default createStore({
     popularMovies: [],
     trendMovies: [],
     movieDetail: {},
-    cast: {}
+    cast: {},
+    searchResults: [],
+    movies: [],
+    movie: null,
+    favourite: [],
   },
 
 
@@ -22,7 +26,13 @@ export default createStore({
 
     getCast: (state) => state.cast,
 
+    getSearchResults: (state) => state.searchResults,
+
+  
+
     login: (state) => state.login,
+    
+
   },
 
 
@@ -38,6 +48,15 @@ export default createStore({
     },
     SET_CAST(state, cast) {
       state.cast = cast
+    },
+    SET_SEARCH_RESULTS(state, searchResults) {
+      state.searchResults = searchResults
+    },
+    SET_FAVOURITE(state, {movie, quantity}) {
+      state.favourite.push({
+        movie,
+        quantity,
+      })
     },
     SET_LOGIN(state, status) {
       state.login = status;
@@ -95,18 +114,23 @@ export default createStore({
         })
     },
     
-
-    //       async getSearchResult({ commit }, query) {
-    //         console.log(query);
-    //         const response = await axios
-    //         .get(`https://api.themoviedb.org/3/search/movie?api_key=a06cfa7f0853984e8a69e2db2fd1b8fd&language=en-US=${query}`)
-    //         .catch((error) => {
-    //           console.log(error)
-    //         })
-    //         .finally(() => (this.loading = false));
-    //         commit("SET_SEARCH_RESULT", response.data.results)
-    //         console.log(response.data.result)
-    // },
+  getSearchResult({ commit }, query) {
+       
+            axios.get(`https://api.themoviedb.org/3/search/movie?api_key=a06cfa7f0853984e8a69e2db2fd1b8fd&language=en-US=${query}`)
+            .then(result => {
+              console.log('movies for search', query);
+              commit("SET_SEARCH_RESULTS", result.data.results) 
+            })
+         
+            .catch((error) => {
+              console.log(error)
+            })
+   
+    },
+    addFavourite({commit}, {movie, quantity }) {
+            commit("SET_FAVOURITE", {movie, quantity } )
+    },
+    
   },
   modules: {
   }

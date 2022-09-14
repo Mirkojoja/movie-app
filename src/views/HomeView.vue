@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div v-if="!isLogged">
+    <div v-if="isLogged">
       <Welcome />
     </div>
     <div v-else>
@@ -17,7 +17,8 @@
 
 
         <!-- Search bar -->
-        <div class="flex mt-14">
+    <form @submit.prevent="getSearchResults">
+      <div class="flex mt-14">
           <div class="relative text-black">
             <div class="flex absolute inset-y-0  items-center pl-3 pointer-events-none">
               <svg aria-hidden="true" class="w-5 h-5 text-gray-500 dark:text-gray-400" fill="currentColor"
@@ -29,10 +30,15 @@
             </div>
             <input type="text" id="voice-search"
               class="lg:w-[550px] pl-10 p-2.5 w-full text-[1.2rem]  bg-white py-2 px-4 border border-zinc-500 rounded-lg"
-              placeholder="Search Movies" required @keyup.enter="submit" v-model="query">
+              placeholder="Search Movies" required 
+          
+              v-model="query"
+               @keyup="getSearchResults">
           </div>
           <div>
-            <button type="submit"
+            <button
+            @click="getSearchResults" 
+            type="submit"
               class="ml-5 inline-flex items-center  text-[1.2rem]  bg-zinc-900 py-2 px-4 border text-white  border-zinc-500 rounded-lg hover:bg-zinc-700 hover:text-white">
               <svg aria-hidden="true" class="mr-2 -ml-1 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"
                 xmlns="http://www.w3.org/2000/svg">
@@ -43,21 +49,19 @@
           </div>
 
         </div>
+    </form>
 
 
-
-
-        <div v-if="false" class="absolute w-96 rounded  mt-12">
+        <div v-if="query.length > 0 && searchResultsVisible" class="absolute w-96 rounded  mt-12">
           <ul class="mt-6">
-            <li class=" bg-zinc-800 p-3 flex tex-center border-b  ">
+            <li v-for="movie in getSearchResults" :key="movie.title" class=" bg-zinc-800 p-3 flex tex-center border-b ">
 
               <img class="h-36 "
                 src="https://images.unsplash.com/photo-1534809027769-b00d750a6bac?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80"
                 alt="">
               <div class="flex flex-col pt-4">
-                <span class="text-white font-bold font-lg  items-center pl-10">TItle</span>
-                <span class="text-white font-bold font-lg  items-center pl-10">Genre</span>
-                <span class="text-white font-bold font-lg  items-center pl-10">Relese date</span>
+                <span class="text-white font-bold font-lg  items-center pl-10">{{ movie.title }}</span>
+               
               </div>
             </li>
           </ul>
@@ -65,6 +69,7 @@
       </div>
 
       <PopularMovies />
+      <TrendMovies />
 
     </div>
   </div>
@@ -73,8 +78,9 @@
 <script>
 // @ is an alias to /src
 
-import { mapGetters } from "vuex";
+import { mapGetters, mapActions } from "vuex";
 import PopularMovies from "../components/movies/PopularMovies"
+import TrendMovies from "../components/movies/TrendMovies"
 import Welcome from "./Welcome.vue"
 
 
@@ -82,19 +88,23 @@ export default {
   name: 'HomeView',
   components: {
     PopularMovies,
+    TrendMovies,
     Welcome
   },
   computed: {
     ...mapGetters({
-      isLogged: 'login'
+      isLogged: 'login',
+      getSearchResults: 'getSearchResults'
     })
   },
   data() {
     return {
-      name: ''
+      name: '',
+      query: '',
+      searchResultsvisibel: false,
     };
   },
-
+ 
 
   mounted() {
     let user = localStorage.getItem("user-info");
@@ -107,7 +117,10 @@ export default {
       localStorage.clear();
       this.$router.push({ name: 'Welcome' })
       this.$store.commit('SET_LOGIN', false);
-    }
+    },
+    ...mapActions(
+      ['getSearchResults']
+    )
   }
 
 }

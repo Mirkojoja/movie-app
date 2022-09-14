@@ -26,7 +26,7 @@
             class="inline-flex items-center py-2.5 px-3 m-2 text-sm font-medium text-white bg-zinc-900 rounded-lg border border-zinc-300  hover:text-zinc-800 hover:bg-zinc-200 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-zinc-700 dark:hover:bg-zinc-300 dark:focus:ring-blue-800">
             <font-awesome-icon icon="fa-solid fa-circle-play" class="pr-2" /> Watch Trailer
           </button>
-          <button type="submit"
+          <button @click="addToFavourite()" type="submit"
             class="inline-flex items-center py-2.5 px-3 m-2 text-sm font-medium text-white bg-zinc-900 rounded-lg border border-zinc-300  hover:text-zinc-800 hover:bg-zinc-200 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-zinc-700 dark:hover:bg-zinc-300 dark:focus:ring-blue-800">
             <font-awesome-icon icon="fa-solid fa-heart" class="pr-2 hover:text-red-700" /> Favourite
           </button>
@@ -57,6 +57,7 @@
 import { mapGetters } from "vuex"
 export default {
   name: 'MovieDetial',
+  props:['movie'],
 
   created() {
     this.$store.dispatch("getMovieDetial", this.$route.params.id)
@@ -67,6 +68,14 @@ export default {
       getMovieDetial: 'getMovieDetial',
       getCast: 'getCast'
     })
+  },
+  methods: {
+    addFavourite() {
+      this.$store.dispatch('addFavourites', {
+        movie: this.movie,
+        quantity: 1
+      })
+    }
   }
 }
 </script>
