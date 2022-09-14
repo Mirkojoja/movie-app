@@ -1,15 +1,15 @@
 <template>
-  <div class="relative">
-    <div class="absolute ">
+  <div class="flex flex-col">
+    <div class="w-full">
       <img
         :src="'https://image.tmdb.org/t/p/w1280' + getMovieDetial.backdrop_path + '?api_key=a06cfa7f0853984e8a69e2db2fd1b8fd'"
-        alt="movie_image" class="hidden lg:block opacity-40 rounded top-0 left-0 object-cover">
+        alt="movie_image" class="opacity-40 rounded top-0 left-0 object-cover w-screen h-[700px]">
     </div>
-    <div class="layout_width flex mx-auto py-10 relative">
-      <img class="rounded-md " :src=" 'https://image.tmdb.org/t/p/w300' + getMovieDetial.poster_path" alt="">
+    <div class="md:flex px-5 py-7 lg:p-10 justify-center absolute">
+      <img class="rounded-md h-96 lg:h-full" :src=" 'https://image.tmdb.org/t/p/w300' + getMovieDetial.poster_path" alt="">
 
       <!-- description -->
-      <div class="ml-10 w-96">
+      <div class="md:ml-10  md:w-full">
         <h3 class="text-3xl uppercase text-white">{{getMovieDetial.title}}</h3>
         <div class="mt-10">
           <font-awesome-icon icon="fa-solid fa-calendar" class="text-lg" /> <span class="text-white ml-1 text-lg"> {{
@@ -36,10 +36,9 @@
 
     </div>
 
-    <h1 class="text-3xl font-bold mt-20 p-4">Cast</h1>
-
-    <div class=" grid grid-cols-1 sm:grid-cols-2 md:grid-cols-6 lg:grid-cols-6 m-4 gap-2">
-      <div v-for="cast in getCast" :key="cast.id">
+    <h1 class="text-3xl font-bold p-4 ml-10">Cast</h1>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 justify-items-center mb-5">
+      <div v-for="cast in getCast" :key="cast.id" class="text-center">
         <img :src=" 'https://image.tmdb.org/t/p/w154' + cast.profile_path"
           class="rounded mt-2 max-w-full transform group-hover:scale-150 transition duration-700">
         <div class="mt-2 text-tiny transform group-hover:translate-x-48 transition duration-500">
@@ -47,8 +46,8 @@
         </div>
       </div>
     </div>
-
   </div>
+
 </template>
 
 <script>
