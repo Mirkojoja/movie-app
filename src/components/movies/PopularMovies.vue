@@ -1,7 +1,7 @@
 <template>
   <div class="p-5">
     <h1 class="text-yellow-500 uppercase text-xl font-bold my-5 ">Popular movies</h1>
-    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-5">
+    <div class="grid md:grid-cols-2 lg:grid-cols-6 gap-5">
 
       <div class="border bg-midnight" v-for="movie in popularMovies" :key="movie.title">
         <router-link class="w-" :to="`/moviedetials/${movie.id}`">

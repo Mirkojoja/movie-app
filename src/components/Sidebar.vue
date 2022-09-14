@@ -1,5 +1,5 @@
 <template>
-    <div class="sidebar  text-white w-64 bg-zinc-900 min-h-screen z-100">
+    <div class="sidebar text-white hidden md:block w-64 bg-zinc-900 min-h-screen z-100">
         <div class="mt-8 text-start">
             <span class="h-10 p-8 text-white text-3xl font-bold">Movies<span class="text-red-600">TV</span></span>
         </div>
